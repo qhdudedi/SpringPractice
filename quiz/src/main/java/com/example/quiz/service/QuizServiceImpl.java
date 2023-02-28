@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Optional;
 
 @Service
+@Transactional
 public class QuizServiceImpl implements QuizService {
     @Autowired
     QuizRepository repository;
