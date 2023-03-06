@@ -1,6 +1,17 @@
 package com.example.quiz;
 
+import java.util.ArrayList;
+import java.util.Optional;
+import java.util.Collections;
+import java.util.List;
 
+import com.example.quiz.service.QuizService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import com.example.quiz.entity.Quiz;
+import com.example.quiz.repository.QuizRepository;
 
 
 @SpringBootApplication
