@@ -9,8 +9,7 @@
 <h3 th:text="${title}">제목</h3>
 <!--/* 등록/변경 완료 메시지 */-->
 <p th:if="${complete}" th:text="${complete}" style="color:blue"></p>
-<!--/* ▼▼▼ Form ▼▼▼ */→
-\
+<!--/* ▼▼▼ Form ▼▼▼ */-->
 <form method="POST"
      th:action="${quizForm.newQuiz}? @{/quiz/insert} : @{/quiz/update}"
      th:object="${quizForm}">
@@ -33,7 +32,7 @@
    <input th:if="${id}" type="hidden" th:field="*{id}" >
    <input type="submit" value="송신">
 </form>
-<--/* △△△ Form △△△ */-->
+<!--/* △△△ Form △△△ */-->
 <br>
 <!--/* ========== 여기까지가 상부 영역 ========== */-->
 <hr>
