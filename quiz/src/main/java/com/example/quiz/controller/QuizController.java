@@ -34,8 +34,24 @@ public class QuizController {
         Iterable<Quiz> list = service.selectAll();
 
         model.addAttribute("list",list);
-        model.addAttribute("title". "등록 폼");
+        model.addAttribute("title", "등록 폼");
 
         return "crud";
+    }
+    @PostMapping("/insert")
+    public String insert(@Validated QuizForm quizForm, BindingResult bindingResult, Model model, RedirectAttributes redirectAttributes){
+        Quiz quiz = new Quiz();
+        quiz.setQuestion(quizForm.getQuestion());
+        quiz.setAnswer(quizForm.getAnswer());
+        quiz.setAuthor(quizForm.getAuthor());
+
+        if(!bindingResult.hasErrors()){
+            service.insertQuiz(quiz);
+            redirectAttributes.addFlashAttribute("complete","등록이 완료되었습니다");
+            return "redirect:/quiz";
+        }
+        else {
+            return showList(quizForm, model);
+        }
     }
 }
